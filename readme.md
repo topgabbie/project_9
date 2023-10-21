@@ -44,7 +44,7 @@ We need to configure our GitHub so that changes on the GitHub repo will automati
     ![settings](images/settings.png)
 2. Click on add WebHook and input the code below
 
-        http://<Jenkins private-ip>:8080/GitHub-webhook    
+        http://<Jenkins-public-ip>:8080/github-webhook    
     ![wh](images/WebHooks.png)
 3. Click on the new item option on the Jenkins webpage and create a freestyle project.
     ![freestyle project](images/freestyle%20name%20Jenkins.png)
