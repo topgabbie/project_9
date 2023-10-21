@@ -47,7 +47,7 @@ We need to configure our GitHub so that changes on the GitHub repo will automati
         http://<Jenkins-public-ip>:8080/github-webhook/    
     ![webhook](images/webhookscfg.png)
 3. Click on the new item option on the Jenkins webpage and create a freestyle project.
-    ![freestyle project](images/freestyle%20name%20Jenkins.png)
+    ![fresstyle](images/freestyle%20name%20jenkins.png)
 4. In the source code management section, paste the GitHub repo url, provide the GitHub credentials and save
 5. On the GitHub homepage, click on the the freestyle project and select**build now** option to manually trigger a build from our GitHub.
    ![buildnow](images/buildnow.png)
