@@ -88,11 +88,17 @@ Now we have our artifacts saved locally on Jenkins server, the next step is to c
     ![sshpublish](images/publish%20over%20ssh.1.png)
     ![sshpublish](images/publish%20over%20ssh.2.png)
 3. Test the configuration and make sure the connection returns Success.
-4. Add another Post build action to the Job as shown below:
+4. if you encounter an unstable error from jenkins, change the permission of the /mnt/apps with the commands below
+   
+        sudo chmod 777 /mnt/apps
+        sudo chown nobody:nobody /mnt/apps
+        sudo chmod -R 777 /mnt
+        sudo chown -R nobody:nobody /mnt
+5. Add another Post build action to the Job as shown below:
     ![postbuildtrigger](images/post-build%20trigger%20ssh.png)
-5. Configure the Jenkins transfer to transfer all the artifacts to the NFS-server. This is achieved by using ** in the ssh source transfer set.
+6. Configure the Jenkins transfer to transfer all the artifacts to the NFS-server. This is achieved by using ** in the ssh source transfer set.
     ![transfer](images/ssh%20settings.png)
-6. Save the configuration and make a change to the Readme file on our GitHub repo
+7. Save the configuration and make a change to the Readme file on our GitHub repo
     ![sshoutput](images/sshnfs.png)
 
 **END**
