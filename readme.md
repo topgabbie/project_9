@@ -48,7 +48,7 @@ We need to configure our GitHub so that changes on the GitHub repo will automati
     ![webhook](images/webhookscfg.png)
 3. Click on the new item option on the Jenkins webpage and create a freestyle project.
     ![fresstyle](images/freestyle%20name%20jenkins.png)
-4. In the source code management section, paste the GitHub repo url, provide the GitHub credentials and save
+4. In the source code management section, paste the GitHub repo URL, provide the GitHub credentials and save
 5. On the GitHub homepage, click on the the freestyle project and select**build now** option to manually trigger a build from our GitHub.
    ![buildnow](images/buildnow.png)
 6. if build was successful, a build number ticked green will be generated below the console. You can also confirm the status of the build by inspecting the console output.
@@ -80,25 +80,25 @@ Now we have our artifacts saved locally on Jenkins server, the next step is to c
     - Select the system menu from the manage Jenkins option
     - Scroll to the publish over SSH option
     - Provide all the needed parameters which include:
-       1. A private key (content of .pem file that you use to connect to NFS server via SSH/Putty).
+       1. A private key (content of .Pem file that you use to connect to NFS server via SSH/Putty).
        2. Arbitrary name.
        3. Hostname – can be private IP address of your NFS server.
        4. Username – ec2-user (since NFS server is based on EC2 with RHEL 8)
-       5. Remote directory – /mnt/apps since our Web Servers use it as a mointing point to retrieve files from the NFS server
+       5. Remote directory – /mnt/apps since our Web Servers use it as a mounting point to retrieve files from the NFS server
     ![sshpublish](images/publish%20over%20ssh.1.png)
     ![sshpublish](images/publish%20over%20ssh.2.png)
 3. Test the configuration and make sure the connection returns Success.
-4. if you encounter an unstable error from jenkins, change the permission of the /mnt/apps with the commands below
-   
+4. if you encounter an unstable error from Jenkins, change the permission of the /mnt/apps with the commands below
+
         sudo chmod 777 /mnt/apps
         sudo chown nobody:nobody /mnt/apps
         sudo chmod -R 777 /mnt
         sudo chown -R nobody:nobody /mnt
 5. Add another Post build action to the Job as shown below:
     ![postbuildtrigger](images/post-build%20trigger%20ssh.png)
-6. Configure the Jenkins transfer to transfer all the artifacts to the NFS-server. This is achieved by using ** in the ssh source transfer set.
+6. Configure the Jenkins transfer to transfer all the artifacts to the NFS-server. This is achieved by using ** in the SSH source transfer set.
     ![transfer](images/ssh%20settings.png)
 7. Save the configuration and make a change to the Readme file on our GitHub repo
     ![sshoutput](images/sshnfs.png)
 
-**END**
+## END
